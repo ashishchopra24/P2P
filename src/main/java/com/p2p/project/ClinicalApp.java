@@ -26,7 +26,6 @@ public class ClinicalApp {
             patient.setInsuranceProvider("Aditya Birla");
             patient.setCopay(30d);
             patient.setAmountToBePayed(1000d);
-
             msg.setObject(patient);
 
             producer.send(requestQueue,msg);
