@@ -15,9 +15,15 @@ public class EligibilityCheckApp {
         try(ActiveMQConnectionFactory cf=new ActiveMQConnectionFactory();
             JMSContext jmsContext=cf.createContext())
         {
-            JMSConsumer consumer=jmsContext.createConsumer(requestQueue);
-            consumer.setMessageListener(new EligibilityCheckListener());
-            Thread.sleep(10000);
+            JMSConsumer consumer1=jmsContext.createConsumer(requestQueue);
+            JMSConsumer consumer2=jmsContext.createConsumer(requestQueue);
+
+            for(int i=1;i<=10;i=i+2)
+            {
+                System.out.println("Consumer 1 "+consumer1.receive());
+                System.out.println("Consumer 2 "+consumer2.receive());
+            }
+
         }
     }
 }

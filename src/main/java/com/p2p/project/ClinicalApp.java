@@ -28,11 +28,12 @@ public class ClinicalApp {
             patient.setAmountToBePayed(1000d);
             msg.setObject(patient);
 
+            for(int i=1;i<=10;i++)
             producer.send(requestQueue,msg);
 
-            JMSConsumer consumer=jmsContext.createConsumer(replyQueue);
-            MapMessage replyMsg=(MapMessage)consumer.receive(30000);
-            System.out.println("Patient eligibility is "+replyMsg.getBoolean("eligible"));
+            //JMSConsumer consumer=jmsContext.createConsumer(replyQueue);
+            //MapMessage replyMsg=(MapMessage)consumer.receive(30000);
+            //System.out.println("Patient eligibility is "+replyMsg.getBoolean("eligible"));
 
 
 
