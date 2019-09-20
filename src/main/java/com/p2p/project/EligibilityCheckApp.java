@@ -13,7 +13,7 @@ public class EligibilityCheckApp {
         Queue requestQueue=(Queue) initialContext.lookup("queue/inboundQueue");
 
         try(ActiveMQConnectionFactory cf=new ActiveMQConnectionFactory();
-            JMSContext jmsContext=cf.createContext())
+            JMSContext jmsContext=cf.createContext("eligibilityuser","eligibilitypass"))
         {
             JMSConsumer consumer1=jmsContext.createConsumer(requestQueue);
             JMSConsumer consumer2=jmsContext.createConsumer(requestQueue);
